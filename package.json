@@ -1,0 +1,15 @@
+{
+    "name": "examination-1",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+      "test": "standard && node app.js"
+    },
+    "author": "David Larsson (dl222is)",
+    "license": "MIT",
+    "dependencies": {
+      "standard": "^10.0.3"
+    }
+  }
+  
