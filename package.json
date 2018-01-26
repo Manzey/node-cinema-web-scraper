@@ -1,15 +1,16 @@
 {
-    "name": "examination-1",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "scripts": {
-      "test": "standard && node app.js"
-    },
-    "author": "David Larsson (dl222is)",
-    "license": "MIT",
-    "dependencies": {
-      "standard": "^10.0.3"
-    }
+  "name": "examination-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "standard && node app.js"
+  },
+  "author": "David Larsson (dl222is)",
+  "license": "MIT",
+  "dependencies": {
+    "standard": "^10.0.3",
+    "jsdom": "^11.5.1",
+    "node-fetch": "^1.7.3"
   }
-  
+}
