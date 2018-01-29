@@ -1,4 +1,6 @@
 const scrape = require('./lib/URLscraper')
+const table = require('./lib/TableScraper')
+const calendar = require('./calendar')
 
 // Check the arguments.
 let args = process.argv.slice(2)
@@ -13,8 +15,8 @@ async function run() {
 const scrapedLinks = scrape.scrapeURLs(args)
 const [linkSet] = await Promise.all([scrapedLinks])
 
-linkSet.forEach(function(link) {
-   console.log(link)
-})
+calendar.crawlCalendar(linkSet)
+
 }
 run()
+
