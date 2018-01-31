@@ -5,13 +5,14 @@ async function crawlCalendar(linkSet) {
     // Initialize variables and set them in the forEach
   let scrapedCalendars
   let calendarLink
-  linkSet.forEach(function(link) {
-    // If the link is the link for the calendar, scrape the URLs from that page and save the URL in a variable.
-     if (link.includes('calendar')) {
-      scrapedCalendars = scrape.scrapeURLs([link])
-      calendarLink = link
-     }
-  })
+
+  for (link of linkSet) {
+        // If the link is the link for the calendar, scrape the URLs from that page and save the URL in a variable.
+        if (link.includes('calendar')) {
+          scrapedCalendars = scrape.scrapeURLs([link])
+          calendarLink = link
+         }
+  }
   const [calendarSet] = await Promise.all([scrapedCalendars])
   
   
@@ -37,14 +38,17 @@ async function crawlCalendar(linkSet) {
       if (mary.friday && peter.friday && paul.friday) {
         friday = true
         console.log('FRIDAY IT IS!')
+        return 'Friday'
       }
       if (mary.saturday && peter.saturday && paul.saturday) {
         saturday = true
         console.log('SATURDAY IT IS!')
+        return 'Saturday'
       }
       if (mary.sunday && peter.sunday && paul.sunday) {
         sunday = true
         console.log('SUNDAY IT IS!')
+        return 'Sunday'
       }
   }
 
