@@ -10,7 +10,7 @@ for (link of linkSet) {
 
 const trafficData = traffic.intercept(cinemaLink, day)
 const [movies] = await Promise.all([trafficData])
-console.log(movies)
+return movies
 }
 
 module.exports.crawlCinema = crawlCinema
