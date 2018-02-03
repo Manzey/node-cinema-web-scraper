@@ -11,7 +11,8 @@ async function crawlDinner (linkSet, day, movies) {
   const [bookingsArray] = await Promise.all([cookieData])
 
   console.log('Putting recommendations together... DONE\n')
-// Added for support if more than one day is a match
+
+// Added for support if more than one day is a match in the calendar
   for (let [index, bookings] of bookingsArray.entries()) {
     // Remove extra whitespace and split string for every line - creating an array of the bookings
     let times = bookings.replace(/^\s+|\s+$/, '')
@@ -25,6 +26,7 @@ async function crawlDinner (linkSet, day, movies) {
         times[i] = times[i].replace(/\s/g, '')
       }
     }
+    // Nested loop that iterates over each available dinner booking and then iterates to try to match that with a movie at the cinema.
     for (let time of times) {
       let dinnerTime = time.substring(0, 2)
       for (let movie of movies) {
@@ -38,7 +40,7 @@ async function crawlDinner (linkSet, day, movies) {
           } else if (movie.movie === '03') {
             movieName = 'A Day at the Races'
           }
-
+          // Concatenate string for output.
           console.log('* On ' + day[index] + ' there`s a free table between ' + (dinnerTime) + ':00 and ' + (parseInt(dinnerTime) + 2) + ':00,' +
                      ' after you`ve seen the "' + movieName + '" which starts at ' + (movieTime) + ':00')
         }

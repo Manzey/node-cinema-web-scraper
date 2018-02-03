@@ -32,6 +32,7 @@ async function crawlCalendar (linkSet) {
       paul = person
     }
   }
+  // If all a day is true for all people then that day is available in the calendar, so push it into array.
   let days = []
   if (mary.friday && peter.friday && paul.friday) {
     days.push('Friday')
