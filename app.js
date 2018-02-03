@@ -20,9 +20,13 @@ async function run () {
   // Do work with the URLs (crawl each page for information and do something with it)
   console.log('Fetching calendar days... DONE')
   const day = await calendar.crawlCalendar(linkSet)
-  console.log('Finding a movie thats not fully booked... DONE')
-  const movies = await cinema.crawlCinema(linkSet, day)
-  console.log('Finding an empty table at the favorite restaurant... DONE')
-  dinner.crawlDinner(linkSet, day, movies)
+  if (day.length > 0) {
+    console.log('Finding a movie thats not fully booked... DONE')
+    const movies = await cinema.crawlCinema(linkSet, day)
+    console.log('Finding an empty table at the favorite restaurant... DONE')
+    dinner.crawlDinner(linkSet, day, movies)
+  } else {
+    console.log('No match was found inbetween the friends in the caldendar!')
+  }
 }
 run()
